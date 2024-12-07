@@ -144,7 +144,7 @@ def stepFive(entites_df, target_page_entity_df):
         final_df = pd.DataFrame(final_df_data)
 
         final_df["Missed"] = final_df["Entity"].apply(
-            lambda entity: True if entity in target_entities_set else False
+            lambda entity: entity not in target_entities_set
         )
 
     sorted_df = final_df.sort_values(by="Count", ascending=False)
